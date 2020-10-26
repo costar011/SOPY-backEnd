@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import student from "../api/Student/student/student";
+import Lecture from "../api/Lecture/lecture/lecture";
 
 const Schema = mongoose.Schema;
 
@@ -13,7 +13,7 @@ const Student = new Schema(
       type: Number,
       required: true,
     },
-    moblie: {
+    mobile: {
       type: String,
       required: true,
     },
@@ -25,6 +25,12 @@ const Student = new Schema(
       type: String,
       required: true,
     },
+    lecture: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: `Lecture`,
+      },
+    ],
   },
   {
     versionKey: false,

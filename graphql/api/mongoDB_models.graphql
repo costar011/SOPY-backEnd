@@ -3,6 +3,16 @@ type Student {
   name: String!
   age: Int!
   school: String!
-  moblie: String!
+  mobile: String!
   gender: String!
+  lecture: [Lecture!]!
+}
+
+type Lecture {
+  _id: ID!
+  name: String!
+  teacher: String!
+  lv: Int!
+  location: String!
+  pay: Int!
 }
