@@ -16,3 +16,21 @@ type Lecture {
   location: String!
   pay: Int!
 }
+
+type Author {
+  _id: ID!
+  name: String!
+  birth: String!
+  company: String!
+  artList: [Book!]!
+}
+
+type Book {
+  _id: ID!
+  title: String!
+  summary: String!
+  author: Author!
+  publicshed: String!
+  price: Int!
+  type: String!
+}
