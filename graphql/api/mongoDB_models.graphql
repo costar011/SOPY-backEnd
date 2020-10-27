@@ -30,7 +30,7 @@ type Book {
   title: String!
   summary: String!
   author: Author!
-  publicshed: String!
+  published: String!
   price: Int!
   type: String!
 }

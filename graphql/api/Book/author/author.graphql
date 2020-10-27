@@ -1,0 +1,4 @@
+type Query {
+  getAllAuthor: [Author!]!
+  getOneAuthor(name: String!): Author!
+}
