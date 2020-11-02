@@ -34,3 +34,16 @@ type Book {
   price: Int!
   type: String!
 }
+
+type Company {
+  _id: ID!
+  name: String!
+  startDate: String!
+  snackList: [Snack!]!
+}
+
+type Snack {
+  _id: ID!
+  name: String!
+  price: Int!
+}
