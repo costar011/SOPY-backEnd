@@ -9,6 +9,8 @@ export default {
           path: `snackList`,
           model: Snack,
         });
+
+        return result;
       } catch (e) {
         console.log(e);
         return [];
