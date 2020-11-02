@@ -1,0 +1,5 @@
+type Query {
+  getAllSnack: [Snack!]!
+  getSnackGte(price: Int!): [Snack!]!
+  getSnackLte(price: Int!): [Snack!]!
+}
