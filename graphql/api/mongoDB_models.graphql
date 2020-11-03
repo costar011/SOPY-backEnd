@@ -47,3 +47,12 @@ type Snack {
   name: String!
   price: Int!
 }
+
+type User {
+  _id: ID!
+  email: String!
+  name: String!
+  moblie: String!
+  secretCode: String!
+  createdAt: String!
+}
