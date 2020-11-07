@@ -1,0 +1,4 @@
+type Query {
+  getallSnack: [Snack!]!
+  getsnackSearch(value: String!): [Snack!]!
+}
