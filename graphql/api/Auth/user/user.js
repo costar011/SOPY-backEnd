@@ -73,11 +73,46 @@ export default {
             }
           });
           // secretCode를 현재 감색 된 사용자 디비에 추가
+
+          const final = await User.updateOne(
+            { email },
+            {
+              $set: { secretCode: secret },
+            }
+          );
           return true;
         }
       } catch (e) {
         console.log(e);
         return false;
+      }
+    },
+
+    comfirmSecret: async (_, args) => {
+      const { email, secret } = args;
+
+      try {
+        const loginUser = await User.findOne({
+          email,
+          secretCode: secret,
+        });
+
+        if (!loginUser) {
+          throw new Error("Fail To Login");
+        } else {
+          await User.updateOne(
+            { email },
+            {
+              $set: {
+                secretCode: "",
+              },
+            }
+          );
+        }
+        return loginUser;
+      } catch (e) {
+        console.log(e);
+        return {};
       }
     },
   },

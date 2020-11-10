@@ -8,7 +8,7 @@ export const generateSecretCode = () => {
   const ranNum1 = Math.floor(Math.random() * len);
   const ranNum2 = Math.floor(Math.random() * len);
 
-  const result = ads[ranNum1] + "" + non[ranNum2];
+  const result = ads[ranNum1] + "  " + non[ranNum2];
 
   return result;
 };
