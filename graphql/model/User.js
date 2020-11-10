@@ -13,7 +13,7 @@ const User = new Schema( // User라는 상수에 스키마를 만듬
       type: String,
       required: true,
     },
-    moblie: {
+    mobile: {
       type: String,
       required: true,
     },
