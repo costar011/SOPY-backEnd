@@ -2,33 +2,43 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const Lecture = new Schema(
+const Video = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    teacher: {
+    description: {
       type: String,
       required: true,
     },
-    lv: {
+    videoPath: {
       type: String,
       required: true,
     },
-    location: {
+    createdAt: {
       type: String,
       required: true,
     },
-    pay: {
+    hit: {
       type: Number,
       required: true,
     },
+    likes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: `User`,
+      },
+    ],
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: `Comment`,
+      },
+    ],
   },
-  {
-    versionKey: false,
-  }
+  { versionKey: false }
 );
 
-export default mongoose.model(`Lecture`, Lecture, `Lecture`);
+export default mongoose.model(`Video`, Video, `Video`);
 // (`별칭`, 실제 객체 , `몽고DB안에 있는 진짜 별칭스키마는 뭔데?`)

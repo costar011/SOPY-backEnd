@@ -25,6 +25,12 @@ const User = new Schema( // User라는 상수에 스키마를 만듬
       type: String,
       required: true,
     },
+    video: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: `Video`,
+      },
+    ],
   },
   { versionKey: false }
 );

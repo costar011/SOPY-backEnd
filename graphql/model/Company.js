@@ -26,3 +26,4 @@ const Company = new Schema(
 );
 
 export default mongoose.model(`Company`, Company, `Company`);
+// (`별칭`, 실제 객체 , `몽고DB안에 있는 진짜 별칭스키마는 뭔데?`)
