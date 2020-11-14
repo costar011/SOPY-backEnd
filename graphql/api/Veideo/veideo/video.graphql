@@ -1,0 +1,8 @@
+type Mutation {
+  uploadVideo(
+    title: String!
+    description: String!
+    videoPath: String!
+    loginEmail: String!
+  ): Boolean!
+}
