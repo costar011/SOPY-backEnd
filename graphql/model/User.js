@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 // const <--변하지 않는다는 의미  Schema <-- 객체는 대문자로 시작함
 
-const User = new Schema( // User라는 상수에 스키마를 만듬
+const User = new Schema( // User 라는 상수에 스키마를 만듬
   {
     email: {
       type: String,
