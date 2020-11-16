@@ -3,6 +3,18 @@ import User from "../../../model/User";
 import mongoose from "mongoose";
 
 export default {
+  Query: {
+    seeAllVideos: async (_, args) => {
+      try {
+        const result = await Video.find({});
+
+        return result;
+      } catch (e) {
+        console.log(e);
+        return [];
+      }
+    },
+  },
   Mutation: {
     uploadVideo: async (_, args) => {
       const { title, description, videoPath, loginEmail } = args;

@@ -11,6 +11,7 @@ import connect from "../db/mongo";
 // express를 app에 넣는다.
 const app = express();
 
+// dotenv에 있는 PORT를 세팅하겠다.
 app.set(`PORT`, process.env.PORT);
 
 // app.js 에게 morgan를 써야한다고 신호를 줌
