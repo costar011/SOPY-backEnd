@@ -9,6 +9,10 @@ const Video = new mongoose.Schema( // Video 라는 상수에 스키마를 만듬
       type: String,
       required: true,
     },
+    thumbnailPath: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -24,6 +28,10 @@ const Video = new mongoose.Schema( // Video 라는 상수에 스키마를 만듬
     hit: {
       type: Number,
       required: true,
+    },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: `User`,
     },
     likes: [
       {

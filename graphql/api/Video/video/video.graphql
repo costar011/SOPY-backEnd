@@ -1,3 +1,10 @@
+type Query {
+  seeAllVideos: [Video!]!
+  seeDetailVideo(id: String!): Video!
+  seeVideosByUser(id: String!): User!
+  searchVideoByTitle(sTitle: String!): [Video!]!
+}
+
 type Mutation {
   uploadVideo(
     title: String!

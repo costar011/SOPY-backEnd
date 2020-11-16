@@ -6,7 +6,55 @@ export default {
   Query: {
     seeAllVideos: async (_, args) => {
       try {
-        const result = await Video.find({});
+        const result = await Video.find().populate({
+          path: `author`,
+          model: User,
+        });
+
+        return result;
+      } catch (e) {
+        console.log(e);
+        return [];
+      }
+    },
+    seeDetailVideo: async (_, args) => {
+      const { id } = args;
+      try {
+        const result = await Video.findOne({ _id: id }).populate({
+          path: `author`,
+          model: User,
+        });
+
+        return result;
+      } catch (e) {
+        console.log(e);
+        return {};
+      }
+    },
+    seeVideosByUser: async (_, args) => {
+      const { id } = args;
+      try {
+        const result = await User.findOne({ _id: id }).populate({
+          path: `videos`,
+          model: Video,
+        });
+        return result;
+      } catch (e) {
+        console.log(e);
+        return {};
+      }
+    },
+
+    searchVideoByTitle: async (_, args) => {
+      const { sTitle } = args;
+
+      try {
+        const result = await Video.find({
+          title: { $regex: `.*${sTitle}.*` },
+        }).populate({
+          path: `author`,
+          model: User,
+        });
 
         return result;
       } catch (e) {

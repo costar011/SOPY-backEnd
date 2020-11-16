@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema; // const <--변하지 않는다는 의미  Schema <-- 객체는 대문자로 시작함
 
 const Comment = new Schema(
   {
     description: {
       type: String,
-      required: false,
+      required: true,
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
@@ -14,7 +14,7 @@ const Comment = new Schema(
     },
     createdAt: {
       type: String,
-      required: false,
+      required: true,
     },
   },
   { versionKey: false }
