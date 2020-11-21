@@ -56,5 +56,35 @@ export default {
         return false;
       }
     },
+    deleteComment: async (_, args) => {
+      const { id } = args;
+
+      try {
+        const result = await Comment.deleteOne({ _id: id });
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
+    updateComment: async (_, args) => {
+      const { id, description } = args;
+
+      try {
+        const result = await Comment.updateOne(
+          { _id: id },
+          {
+            $set: {
+              description,
+            },
+          }
+        );
+
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
   },
 };
