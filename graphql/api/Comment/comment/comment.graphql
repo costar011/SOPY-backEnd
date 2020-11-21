@@ -1,4 +1,4 @@
-type Auery {
+type Query {
   viewComments(videoId: String!): [Comment!]!
 }
 
