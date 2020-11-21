@@ -1,0 +1,14 @@
+type Auery {
+  viewComments(videoId: String!): [Comment!]!
+}
+
+type Mutation {
+  createComment(
+    description: String!
+    userId: String!
+    videoId: String!
+  ): Boolean!
+
+  deleteComment(id: String!): Boolean!
+  updateComment(id: String!, description: String!): Boolean!
+}

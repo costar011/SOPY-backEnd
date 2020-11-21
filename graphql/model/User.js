@@ -31,6 +31,12 @@ const User = new Schema( // User 라는 상수에 스키마를 만듬
         ref: `Video`,
       },
     ],
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: `Comment`,
+      },
+    ],
   },
 
   { versionKey: false }
