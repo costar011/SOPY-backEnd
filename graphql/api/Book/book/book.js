@@ -3,6 +3,7 @@ import Book from "../../../model/Book";
 
 export default {
   Query: {
+    // Qurey 데이터 갖고오는 것 빼고는 전부 다  Mutation 이다.
     getAllBooks: async (_, agrs) => {
       try {
         const result = await Book.find({}, {}).populate({

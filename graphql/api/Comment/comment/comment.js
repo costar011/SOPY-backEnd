@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 
 export default {
   Query: {
+    // Qurey 데이터 갖고오는 것 빼고는 전부 다  Mutation 이다.
     viewComments: async (_, args) => {
       const { videoId } = args;
 
@@ -33,6 +34,7 @@ export default {
     },
   },
   Mutation: {
+    // updata , delete 는 query가 아니기 때문에 Mutation으로 가야함.
     createComment: async (_, args) => {
       const { description, userId, videoId } = args;
 
@@ -93,3 +95,11 @@ export default {
     },
   },
 };
+
+// 댓글을 추가 하고나서
+// -> 비디오에 추가
+// -> 유저에 추가 해주는데 이걸 왜하는 것 인가??
+// 사용자가 글을 입력하면 comment를 만든다.
+// 그러면은 그 녀석의 id가 있을 것 이다 이 id를 비디오랑 유저한테 주는 것 이다.
+// 비디오에 주는 이유는? 비디오 볼 떄 밑에 댓글이 보이기 떄문이다.
+// 유저한테 주는 이유는? 이 유저가 사용하는 댓글을 한번에 볼 수 있어야하니까.

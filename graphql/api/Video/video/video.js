@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 export default {
   Query: {
+    // Qurey 데이터 갖고오는 것 빼고는 전부 다  Mutation 이다.
     seeAllVideos: async (_, args) => {
       try {
         const result = await Video.find().populate({
@@ -64,6 +65,7 @@ export default {
     },
   },
   Mutation: {
+    // updata , delete 는 query가 아니기 때문에 Mutation으로 가야함.
     uploadVideo: async (_, args) => {
       const { title, description, videoPath, loginEmail } = args;
 
