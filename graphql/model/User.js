@@ -31,6 +31,7 @@ const User = new Schema( // User 라는 상수에 스키마를 만듬
         ref: `Video`,
       },
     ],
+    // comments 라는 데이터는 Comment모델을 레퍼런스로 배열로 저장.
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
