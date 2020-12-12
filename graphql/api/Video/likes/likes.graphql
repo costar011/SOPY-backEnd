@@ -1,3 +1,0 @@
-type Mutation {
-  likesToggle(videoId: String!, userId: String!): Boolean!
-}

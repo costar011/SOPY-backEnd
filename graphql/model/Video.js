@@ -17,34 +17,6 @@ const Video = new mongoose.Schema( // Video 라는 상수에 스키마를 만듬
       type: String,
       required: true,
     },
-    videoPath: {
-      type: String,
-      required: true,
-    },
-    createdAt: {
-      type: String,
-      required: true,
-    },
-    hit: {
-      type: Number,
-      required: true,
-    },
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: `User`,
-    },
-    likes: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: `User`,
-      },
-    ],
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: `Comment`,
-      },
-    ],
   },
   { versionKey: false }
 );

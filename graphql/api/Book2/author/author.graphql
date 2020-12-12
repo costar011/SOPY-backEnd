@@ -1,6 +1,0 @@
-type Query {
-  getallAuthor: [Author!]!
-  getoneAuthor(name: String!): Author!
-
-  getAuthorList: [Author!]!
-}
