@@ -4,3 +4,18 @@ type Video {
   description: String!
   thumbnailPath: String!
 }
+
+type User {
+  _id: ID!
+  name: String!
+  mobile: String!
+  email: String!
+  nickName: String!
+  zoneCode: String!
+  address: String!
+  detailAddress: String!
+  createdAt: String!
+  Videos: [Video!]!
+  subcribeForMe: [User!]!
+  subcribeToOther: [User!]!
+}
