@@ -12,7 +12,6 @@ export default {
         address,
         detailAddress,
       } = args;
-
       try {
         const result = await User.create({
           name,
