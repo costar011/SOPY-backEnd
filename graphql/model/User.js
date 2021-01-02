@@ -61,6 +61,11 @@ const User = new Schema(
         ref: `User`,
       },
     ],
+    secretCode: {
+      type: String,
+      required: true,
+      default: "-",
+    },
   },
   {
     versionKey: false,

@@ -17,4 +17,5 @@ type User {
   videos: [Video!]!
   subscribeForMe: [User!]!
   subscribeToOther: [User!]!
+  secretCode: String!
 }
