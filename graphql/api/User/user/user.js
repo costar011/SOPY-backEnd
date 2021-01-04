@@ -4,6 +4,33 @@ import smtpPool from "nodemailer-smtp-pool";
 
 export default {
   Mutation: {
+    checkSecretCode: async (_, args) => {
+      const { email, code } = args;
+
+      try {
+        const tryUser = await User.findOne({ email });
+
+        console.log(tryUser.secretCode);
+
+        console.log(`INPuT : ${code}`);
+
+        if (tryUser.secretCode === code) {
+          await User.updateOne(
+            { email },
+            {
+              $set: { secretCode: `` },
+            }
+          );
+
+          return true;
+        } else {
+          return false;
+        }
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
     registUser: async (_, args) => {
       const {
         name,
@@ -14,18 +41,20 @@ export default {
         address,
         detailAddress,
       } = args;
+
       try {
         const prevResult = await User.find({ email });
+
         if (prevResult.length !== 0) {
-          console.log("Exist User Email Yet . . .");
+          console.log("Exist User Email Yet.");
           return false;
         } else {
           const result = await User.create({
             name,
             email,
-            nickName,
+            nickName: nickName,
             mobile,
-            zoneCode,
+            zoneCode: zoneCode,
             address,
             detailAddress,
           });
@@ -42,12 +71,15 @@ export default {
       const { email } = args;
 
       try {
+        // 이메일이 가입 되어 있는가
+        // 가입 되어 있지 않다면 return false;
+
         const exist = await User.find({ email });
 
         if (exist.length > 0) {
-          const randomCode = [`0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`];
+          // 가입 되어 있다면, 인증 코드 생성
 
-          console.log(Math.floor(Math.random() * 10));
+          const randomCode = [`0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`];
 
           const code =
             randomCode[Math.floor(Math.random() * 10)] +
@@ -58,16 +90,15 @@ export default {
           const smtpTransport = nodemailer.createTransport(
             smtpPool({
               service: "Gmail",
-              host: "localhost", // gmail localhost
+              host: "localhost",
               port: "465",
               tls: {
-                // tls -> `http`s가 붙었냐 안붙었냐
                 rejectUnauthorize: false,
               },
 
               auth: {
-                user: "yerim.dev@gmail.com",
-                pass: "fipfszwikrgwvkih",
+                user: "nijoyh0503@gmail.com",
+                pass: "kmxvmjxujmkzbijj",
               },
               maxConnections: 5,
               maxMessages: 10,
@@ -75,9 +106,9 @@ export default {
           );
 
           const mailOpt = {
-            from: "yerim.dev@gmail.com",
+            from: "nijoyh0503@gmail.com",
             to: email,
-            subject: "🔐 인증코드 전송 [www.sopy.com]",
+            subject: "🔐인증코드 전송 [https://www.sopy.com]",
             html: `인증코드는 ${code} 입니다.`,
           };
 
@@ -91,10 +122,12 @@ export default {
             }
           });
 
-          const updataResult = await User.updateOne(
+          const updateResult = await User.updateOne(
             { email },
             {
-              $set: { secretCode: code },
+              $set: {
+                secretCode: code,
+              },
             }
           );
 
@@ -102,13 +135,14 @@ export default {
         } else {
           return false;
         }
+
+        // 해당 이메일로 인증 코드 전송
+        return true;
+        // 전송 후 return true;
       } catch (e) {
         console.log(e);
         return false;
       }
-
-      // 해당 이메일로 인증코드 전송
-      // 전송 후 return true;
     },
   },
 };

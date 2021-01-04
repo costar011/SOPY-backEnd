@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { mongo } from "mongoose";
 
 const Schema = mongoose.Schema;
 // const <--변하지 않는다는 의미  Schema <-- 객체는 대문자로 시작함
@@ -10,52 +9,43 @@ const User = new Schema(
       type: String,
       required: true,
     },
-
     mobile: {
       type: String,
       required: true,
     },
-
     email: {
       type: String,
       required: true,
     },
-
     nickName: {
       type: String,
       required: true,
     },
-
     zoneCode: {
       type: String,
       required: true,
     },
-
     address: {
       type: String,
       required: true,
     },
-
     detailAddress: {
       type: String,
       required: true,
     },
-
-    videos: [
+    Videos: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: `Video`,
       },
     ],
-
-    subscribeForMe: [
+    subcribeForMe: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: `User`,
       },
     ],
-
-    subscribeToOther: [
+    subcribeToOther: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: `User`,
@@ -67,9 +57,7 @@ const User = new Schema(
       default: "-",
     },
   },
-  {
-    versionKey: false,
-  }
+  { versionKey: false }
 );
 
 export default mongoose.model(`User`, User, `User`);
