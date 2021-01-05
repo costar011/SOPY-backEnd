@@ -97,8 +97,8 @@ export default {
               },
 
               auth: {
-                user: "nijoyh0503@gmail.com",
-                pass: "kmxvmjxujmkzbijj",
+                user: "yerim.dev@gmail.com",
+                pass: "fipfszwikrgwvkih",
               },
               maxConnections: 5,
               maxMessages: 10,
@@ -106,7 +106,7 @@ export default {
           );
 
           const mailOpt = {
-            from: "nijoyh0503@gmail.com",
+            from: "yerim.dev@gmail.com",
             to: email,
             subject: "🔐인증코드 전송 [https://www.sopy.com]",
             html: `인증코드는 ${code} 입니다.`,
