@@ -2,7 +2,7 @@ import Video from "../../../model/Video";
 
 export default {
   Query: {
-    getAllvideos: async (_, args) => {
+    getAllVideos: async (_, args) => {
       try {
         const result = await Video.find({}, {});
 

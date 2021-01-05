@@ -1,6 +1,6 @@
 type Video {
   _id: ID!
-  thumbNailPath: String!
+  thumbnailPath: String!
   title: String!
   description: String!
 }
