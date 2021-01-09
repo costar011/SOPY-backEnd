@@ -1,3 +1,8 @@
+type LoginResult {
+  result: Boolean!
+  objectId: String!
+}
+
 type Mutation {
   registUser(
     name: String!
@@ -10,5 +15,5 @@ type Mutation {
   ): Boolean!
 
   tryLogin(email: String!): Boolean!
-  checkSecretCode(email: String!, code: String!): Boolean!
+  checkSecretCode(email: String!, code: String!): LoginResult!
 }

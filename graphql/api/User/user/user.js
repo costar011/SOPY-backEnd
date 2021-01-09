@@ -22,13 +22,22 @@ export default {
             }
           );
 
-          return true;
+          return {
+            result: true,
+            objectId: tryUser._id,
+          };
         } else {
-          return false;
+          return {
+            result: false,
+            objectId: "-",
+          };
         }
       } catch (e) {
         console.log(e);
-        return false;
+        return {
+          result: false,
+          objectId: "-",
+        };
       }
     },
     registUser: async (_, args) => {
