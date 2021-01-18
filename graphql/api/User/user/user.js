@@ -40,6 +40,7 @@ export default {
         };
       }
     },
+
     registUser: async (_, args) => {
       const {
         name,
