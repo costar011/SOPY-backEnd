@@ -13,4 +13,22 @@ export default {
       }
     },
   },
+  Mutation: {
+    registerVideo: async (_, args) => {
+      const { path, title, desc } = args;
+
+      try {
+        await Video.create({
+          thumbnailPath: path,
+          title,
+          description: desc,
+        });
+
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
+  },
 };

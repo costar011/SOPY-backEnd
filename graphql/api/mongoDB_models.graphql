@@ -1,8 +1,8 @@
 type Video {
   _id: ID!
-  thumbnailPath: String!
   title: String!
   description: String!
+  thumbnailPath: String!
 }
 
 type User {
@@ -14,8 +14,8 @@ type User {
   zoneCode: String!
   address: String!
   detailAddress: String!
-  videos: [Video!]!
-  subscribeForMe: [User!]!
-  subscribeToOther: [User!]!
+  Videos: [Video!]!
+  subcribeForMe: [User!]!
+  subcribeToOther: [User!]!
   secretCode: String!
 }
