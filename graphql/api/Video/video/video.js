@@ -12,7 +12,21 @@ export default {
         return [];
       }
     },
+
+    getVideoOne: async (_, args) => {
+      const { id } = args;
+
+      try {
+        const result = await Video.findOne({ _id: id });
+
+        return result;
+      } catch (e) {
+        console.log(e);
+        return {};
+      }
+    },
   },
+
   Mutation: {
     registerVideo: async (_, args) => {
       const { path, title, desc } = args;
@@ -23,6 +37,19 @@ export default {
           title,
           description: desc,
         });
+
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
+
+    deleteVideo: async (_, args) => {
+      const { id } = args;
+
+      try {
+        await Video.deleteOne({ _id: id });
 
         return true;
       } catch (e) {
