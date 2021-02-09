@@ -57,5 +57,25 @@ export default {
         return false;
       }
     },
+
+    updateVideoOne: async (_, args) => {
+      const { id, path, title, desc } = args;
+      try {
+        await Video.updateOne(
+          { _id: id },
+          {
+            $set: {
+              thumbnailPath: path,
+              title,
+              description: desc,
+            },
+          }
+        );
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
+    },
   },
 };
