@@ -4,13 +4,12 @@ type Query {
 }
 
 type Mutation {
-  registerVideo(path: String!, title: String, desc: String!): Boolean!
+  registerVideo(path: String!, title: String!, desc: String!): Boolean!
   deleteVideo(id: String!): Boolean!
-
   updateVideoOne(
     id: String!
+    path: String!
     title: String!
-    thumbnailPath: String!
-    description: String!
+    desc: String!
   ): Boolean!
 }
