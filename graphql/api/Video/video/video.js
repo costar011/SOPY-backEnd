@@ -26,7 +26,6 @@ export default {
       }
     },
   },
-
   Mutation: {
     registerVideo: async (_, args) => {
       const { path, title, desc } = args;
@@ -44,7 +43,6 @@ export default {
         return false;
       }
     },
-
     deleteVideo: async (_, args) => {
       const { id } = args;
 
@@ -57,7 +55,6 @@ export default {
         return false;
       }
     },
-
     updateVideoOne: async (_, args) => {
       const { id, path, title, desc } = args;
       try {
